@@ -52,7 +52,7 @@ export function adicionarAoCarrinho(idproduto){
 	const containerProdutosCarrinho = document.getElementById("produtos-carrinho");
 	const cartaoProdutoCarrinho = `<article>
 				<button class ="fecCard">X</button>
-				<img src="./IMG/${produto.imagem}">
+				<img src="../IMG/${produto.imagem}">
 				<div id="j" class="py-2">
 					<p>${produto.nome}</p>
 					<p>Tamanha M</p>
