@@ -68,9 +68,9 @@ export function adicionarAoCarrinho(idproduto){
 
 
 	const cartaoProdutoCarrinho = 
-				<button class = "fecCard">X</button>
+				<button >X</button>
 				
-				<img src= "../IMG/${produto.imagem}"">
+				<img src= "../IMG/camisa1.jpg}">
 				<div id="j" class="py-2">
 					<p>${produto.nome}</p>
 					<p>Tamanha M</p>
