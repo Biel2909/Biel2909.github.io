@@ -12,7 +12,7 @@ export function renderizarCatlogo(){
 					<button id= 'adicionar-${produtoCatologo.id}' class="botao">Adicionar</button>
 				</div>
 				<div class="espaco"></div>
-			`;
+			`;jghgfgug
 
 		document.getElementById("container-produto").innerHTML += cartaoProduto;
 		document.getElementById(`adicionar-${produtoCatologo.id}`)
