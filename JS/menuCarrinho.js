@@ -60,9 +60,9 @@ export function adicionarAoCarrinho(idproduto){
 				</div>
 
 				<div class="+-">
-					<button id=`decrementar-produto-${produto.id}`>-</button>
+					<button id="decrementar-produto-${produto.id}">-</button>
 					<p id="quantidade-${produto.id}">${idsProdutoCarrinhoComQuantidade[produto.id]}</p>
-					<button `incrementar-produto-${produto.id}`>+</button>
+					<button "incrementar-produto-${produto.id}">+</button>
 				</div>
 			</article>`
 			containerProdutosCarrinho.innerHTML += cartaoProdutoCarrinho;
