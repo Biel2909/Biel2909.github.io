@@ -23,7 +23,23 @@ export function inicializarCarrinho(){
 		 botaoAbrirCarrinho.addEventListener("click", abrirCarrinho())
 } 
 
+function incrementarQuantidadeProduto(idproduto){
+
+	idsProdutoCarrinhoComQuantidade[idproduto]++;
+}
+
+function descrementarQuantidadeProduto(idproduto){
+
+	idsProdutoCarrinhoComQuantidade[idproduto]--;
+}
+
 export function adicionarAoCarrinho(idproduto){
+	if(idproduto in idsProdutoCarrinhoComQuantidade){
+		return;
+
+		incrementarQuantidadeProduto(idproduto);
+
+	}
 	idsProdutoCarrinhoComQuantidade[idproduto] = 1;
 	const produto = catalogo.find((p)=> p.id === idproduto);
 	const containerProdutosCarrinho = document.getElementById("produtos-carrinho");
