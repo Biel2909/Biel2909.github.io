@@ -1,7 +1,7 @@
 import { catalogo } from "./utlidades.js";
 
 const idsProdutoCarrinhoComQuantidade ={
-			
+	
 
 }
 
@@ -26,11 +26,18 @@ export function inicializarCarrinho(){
 function incrementarQuantidadeProduto(idproduto){
 
 	idsProdutoCarrinhoComQuantidade[idproduto]++;
+	atualizarInformacaoQuantidade()
 }
 
 function descrementarQuantidadeProduto(idproduto){
 
 	idsProdutoCarrinhoComQuantidade[idproduto]--;
+	atualizarInformacaoQuantidade()
+}
+
+function atualizarInformacaoQuantidade(idproduto){
+	document.getElementById(`quantidade-${produto-id}`). innrText = idsProdutoCarrinhoComQuantidade[idproduto]; 
+
 }
 
 export function adicionarAoCarrinho(idproduto){
@@ -53,10 +60,12 @@ export function adicionarAoCarrinho(idproduto){
 				</div>
 
 				<div class="+-">
-					<button>-</button>
+					<button id=`decrementar-produto-${produto.id}`>-</button>
 					<p id="quantidade-${produto.id}">${idsProdutoCarrinhoComQuantidade[produto.id]}</p>
-					<button>+</button>
+					<button `incrementar-produto-${produto.id}`>+</button>
 				</div>
 			</article>`
 			containerProdutosCarrinho.innerHTML += cartaoProdutoCarrinho;
-}
+			document.getElementById(`decrementar-produto-${produto.id}`).addEventListener("click",() => incrementarQuantidadeProduto(produto.id));
+			document.getElementById(`incrementar-produto-${produto.id}`).addEventListener("click",() => incrementarQuantidadeProduto(produto.id));
+		}
