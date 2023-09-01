@@ -101,10 +101,13 @@
 		cursor: pointer;
 	}
 	#j{
-		padding: absolute;
+		position: absolute;
 		top:50% ;
 		color: red;
-
+		padding: 2px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	.abrirCarrinho{
@@ -112,4 +115,12 @@
 	}
 	.fecharCarrinho{
 		right: 360px;
+	}
+	#produtos-carrinho{
+		height: -3/5%;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+
 	}
