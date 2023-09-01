@@ -104,18 +104,6 @@ function desenharProdutoNoCarrinho(idproduto){
 				document.getElementById(`remover-item-${produto.id}`)
 			.addEventListener("click",() => removerDoCarrinho(produto.id));
 }
-function renderizarProdutosCarrinho(){
-	const containerProdutosCarrinho =
-	document.getElementById("produtos-carrinho");
-	containerProdutosCarrinho.innerHTML = "";
-	idsProdutoCarrinhoComQuantidade
-
-	for ( const idproduto in idsProdutoCarrinhoComQuantidade){
-		desenharProdutoNoCarrinho(idproduto); 
-
-	}
-
-}
 
 export function adicionarAoCarrinho(idproduto){
 	if(idproduto in idsProdutoCarrinhoComQuantidade){
