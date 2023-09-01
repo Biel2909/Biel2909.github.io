@@ -13,7 +13,6 @@ export function fecharCarrinho() {
 export function inicializarCarrinho(){
 		 const botaoFecharCarrinho = document.getElementById ('fecharCarrinho')
 		 const botaoAbrirCarrinho = document.getElementById ('abrirCarrinho')
-		 alert("CU")
 		 botaoFecharCarrinho.addEventListener("click", fecharCarrinho())
 		 botaoAbrirCarrinho.addEventListener("click", abrirCarrinho())
 } 
