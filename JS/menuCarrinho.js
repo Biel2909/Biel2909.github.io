@@ -1,7 +1,7 @@
 import { catalogo } from "./utlidades.js";
 
 const idsProdutoCarrinhoComQuantidade ={
-	3		
+			
 
 }
 
