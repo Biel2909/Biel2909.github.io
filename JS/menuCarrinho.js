@@ -23,6 +23,17 @@ export function inicializarCarrinho(){
 		 botaoAbrirCarrinho.addEventListener("click", abrirCarrinho())
 } 
 
+function renderizarProdutosCarrinho(){
+
+}
+
+
+function removerDoCarrinho(idproduto){
+		delete idsProdutoCarrinhoComQuantidade[idproduto];
+		renderizarProdutosCarrinho();
+
+}
+
 function incrementarQuantidadeProduto(idproduto){
 
 	idsProdutoCarrinhoComQuantidade[idproduto]++;
@@ -30,6 +41,11 @@ function incrementarQuantidadeProduto(idproduto){
 }
 
 function descrementarQuantidadeProduto(idproduto){
+	if (idsProdutoCarrinhoComQuantidade[idproduto]===1){
+		removerDoCarrinho(idproduto);
+		return
+
+	}
 
 	idsProdutoCarrinhoComQuantidade[idproduto]--;
 	atualizarInformacaoQuantidade()
@@ -40,14 +56,7 @@ function atualizarInformacaoQuantidade(idproduto){
 
 }
 
-export function adicionarAoCarrinho(idproduto){
-	if(idproduto in idsProdutoCarrinhoComQuantidade){
-		return;
-
-		incrementarQuantidadeProduto(idproduto);
-
-	}
-	idsProdutoCarrinhoComQuantidade[idproduto] = 1;
+function desenharProdutoNoCarrinho(idproduto){
 	const produto = catalogo.find((p)=> p.id === idproduto);
 	const containerProdutosCarrinho = document.getElementById("produtos-carrinho");
 	const elementoArticle = document.createElement("article")
@@ -64,13 +73,13 @@ export function adicionarAoCarrinho(idproduto){
 	elementoArticle.classList.add("flex")
 	elementoArticle.classList.add("bg-slate-100")
 }
-	e
+	
 
 
 	const cartaoProdutoCarrinho = 
-				<button >X</button>
+				`<button id ="remover-item-${produto.id}"class = "fecCard">X</button>
 				
-				<img src= "../IMG/camisa1.jpg}">
+				<img src= "../IMG/${produto.imagem}"">
 				<div id="j" class="py-2">
 					<p>${produto.nome}</p>
 					<p>Tamanha M</p>
@@ -81,10 +90,41 @@ export function adicionarAoCarrinho(idproduto){
 					<button id="decrementar-produto-${produto.id}">-</button>
 					<p id="quantidade-${produto.id}">${idsProdutoCarrinhoComQuantidade[produto.id]}</p>
 					<button "incrementar-produto-${produto.id}">+</button>
-				</div>
+				</div>`;
 			
 			elementoArticle.innerHTML = cartaoProdutoCarrinho;	
 			containerProdutosCarrinho.appendChild(elementoArticle);
-			document.getElementById(`decrementar-produto-${produto.id}`).addEventListener("click",() => incrementarQuantidadeProduto(produto.id));
-			document.getElementById(`incrementar-produto-${produto.id}`).addEventListener("click",() => incrementarQuantidadeProduto(produto.id));
+
+			document.getElementById(`decrementar-produto-${produto.id}`)
+			.addEventListener("click",() => decrementarQuantidadeProduto(produto.id));
+
+			document.getElementById(`incrementar-produto-${produto.id}`)
+			.addEventListener("click",() => incrementarQuantidadeProduto(produto.id));
+
+				document.getElementById(`remover-item-${produto.id}`)
+			.addEventListener("click",() => removerDoCarrinho(produto.id));
+}
+function renderizarProdutosCarrinho(){
+	const containerProdutosCarrinho =
+	document.getElementById("produtos-carrinho");
+	containerProdutosCarrinho.innerHTML = "";
+	idsProdutoCarrinhoComQuantidade
+
+	for ( const idproduto in idsProdutoCarrinhoComQuantidade){
+		desenharProdutoNoCarrinho(idproduto); 
+
+	}
+
+}
+
+export function adicionarAoCarrinho(idproduto){
+	if(idproduto in idsProdutoCarrinhoComQuantidade){
+		return;
+
+		incrementarQuantidadeProduto(idproduto);
+
+	}
+	idsProdutoCarrinhoComQuantidade[idproduto] = 1;
+	desenharProdutoNoCarrinho(idproduto);
+	
 		}
